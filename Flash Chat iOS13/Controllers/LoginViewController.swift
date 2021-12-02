@@ -14,7 +14,14 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextfield: UITextField!
     
 
-    @IBAction func loginPressed(_ sender: UIButton) {
-    }
-    
+//    @IBAction func loginPressed(_ sender: UIButton) {
+//        self.performSegue(withIdentifier: "LoginToChat", sender: self)
+//    }
+//    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "LoginToChat" {
+//            let destinationVC = segue.destination as! ChatViewController
+//        }
+//    }
+//    
 }
