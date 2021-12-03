@@ -26,26 +26,9 @@ class WelcomeViewController: UIViewController {
 //                self.titleLabel.text?.append(letter)
 //            }
 //            charIndex += 1
-        
-        titleLabel.text = "⚡️FlashChat"
 //        }
-    }
-    
-    @IBAction func pressedRegister(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "goToRegister", sender: self)
-    }
-    @IBAction func pressedLogin(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "goToLogin", sender: self)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToRegister" {
-            let destinationVC = segue.destination as! RegisterViewController
-        }
-        
-        if segue.identifier == "goToLogin" {
-            let destinationVC = segue.destination as! LoginViewController
-        }
+        titleLabel.text = "⚡️FlashChat"
+
     }
     
 }
