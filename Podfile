@@ -12,4 +12,6 @@ target 'Flash Chat iOS15' do
     pod 'Firebase/Auth'
     pod 'Firebase/Firestore'
     
+    pod 'IQKeyboardManagerSwift'
+    
 end

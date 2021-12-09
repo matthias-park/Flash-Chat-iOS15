@@ -35,7 +35,9 @@ class ChatViewController: UIViewController {
     }
     
     func loadMessages() {
-        db.collection(K.FStore.collectionName).addSnapshotListener{(querySnapshot, error) in
+        db.collection(K.FStore.collectionName)
+            .order(by: K.FStore.dateField)
+            .addSnapshotListener{(querySnapshot, error) in
             
             self.messages = []
             
@@ -62,11 +64,12 @@ class ChatViewController: UIViewController {
     @IBAction func sendPressed(_ sender: UIButton) {
         
         if let messageBody = messageTextfield.text, let messageSender = Auth.auth().currentUser?.email {
-            db.collection(K.FStore.collectionName).addDocument(data: [K.FStore.senderField: messageSender, K.FStore.bodyField: messageBody]) { (error) in
+            db.collection(K.FStore.collectionName).addDocument(data: [K.FStore.senderField: messageSender, K.FStore.bodyField: messageBody, K.FStore.dateField: Date().timeIntervalSince1970]) { (error) in
                 if let e = error {
                     print("there was an issue saveing data to firestore \(e)")
                 } else {
                     print("successfully saving data")
+                    self.messageTextfield.text = ""
                 }
             }
         }
